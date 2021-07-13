@@ -11,7 +11,7 @@
 | `layout`       | `layout`        | specify the layout of the radio group, defaults to horizontal       | `"grid" \| "horizontal" \| "vertical"` | `"horizontal"` |
 | `name`         | `name`          | The group's name. Gets submitted with the form.                     | `string`                               | `undefined`    |
 | `scale`        | `scale`         | The scale of the radio group                                        | `"l" \| "m" \| "s"`                    | `"m"`          |
-| `selectedItem` | `selected-item` | The group's selected item.                                          | `any`                                  | `undefined`    |
+| `selectedItem` | --           | The group's selected item.                                          | `HTMLCalciteRadioGroupItemElement`     | `undefined`    |
 | `width`        | `width`         | specify the width of the group, defaults to auto                    | `"auto" \| "full"`                     | `"auto"`       |
 
 ## Events

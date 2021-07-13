@@ -7,7 +7,7 @@
 | Property                 | Attribute    | Description                                                                         | Type      | Default     |
 | ------------------------ | ------------ | ----------------------------------------------------------------------------------- | --------- | ----------- |
 | `active`                 | `active`     | True when item is highlighted either from keyboard or mouse hover                   | `boolean` | `false`     |
-| `ancestors`              | --           | Parent and grandparent combobox items, this is set internally for use from combobox | `any[]`   | `undefined` |
+| `ancestors`              | --           | Parent and grandparent combobox items, this is set internally for use from combobox | `ComboboxChildElement[]` | `undefined` |
 | `constant`               | `constant`   | Don't filter this item based on the search text                                     | `boolean` | `undefined` |
 | `disabled`               | `disabled`   | When true, the item cannot be clicked and is visually muted.                        | `boolean` | `false`     |
 | `guid`                   | `guid`       | Unique identifier, used for accessibility                                           | `string`  | `guid()`    |

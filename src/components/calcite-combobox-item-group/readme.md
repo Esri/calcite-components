@@ -6,7 +6,7 @@
 
 | Property             | Attribute | Description                                                                         | Type     | Default     |
 | -------------------- | --------- | ----------------------------------------------------------------------------------- | -------- | ----------- |
-| `ancestors`          | --        | Parent and grandparent combobox items, this is set internally for use from combobox | `any[]`  | `undefined` |
+| `ancestors`          | --        | Parent and grandparent combobox items, this is set internally for use from combobox | `ComboboxChildElement[]` | `undefined` |
 | `label` _(required)_ | `label`   | Title of the group                                                                  | `string` | `undefined` |
 
 ---
