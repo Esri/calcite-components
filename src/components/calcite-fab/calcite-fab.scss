@@ -1,6 +1,12 @@
 :host {
   @extend %component-host;
   @apply bg-transparent;
+
+  &:host([scale="l"]) {
+    calcite-button {
+      height: 44px;
+    }
+  }
 }
 
 calcite-button {

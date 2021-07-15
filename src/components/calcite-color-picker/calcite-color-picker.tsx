@@ -807,7 +807,7 @@ export class CalciteColorPicker {
                   iconStart="minus"
                   label={intlDeleteColor}
                   onClick={this.deleteColor}
-                  scale={scale}
+                  scale={scale === "l" ? "m" : "s"} // TO-DO: s/m color-pickers in Figma show 16px button size (non-existent), l shows 24px size. Will this work for now (s: 24, m: 24, l: 32)?
                 />
                 <calcite-button
                   appearance="transparent"
@@ -817,7 +817,7 @@ export class CalciteColorPicker {
                   iconStart="plus"
                   label={intlSaveColor}
                   onClick={this.saveColor}
-                  scale={scale}
+                  scale={scale === "l" ? "m" : "s"} // TO-DO: s/m color-pickers in Figma show 16px button size (non-existent), l shows 24px size. Will this work for now (s: 24, m: 24, l: 32)?
                 />
               </div>
             </div>

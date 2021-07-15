@@ -1,7 +1,10 @@
+/*
+  Used in: calcite-color-picker,calcite-fab,calcite-inline-editable,calcite-split-button
+  Depends on: calcite-loader,calcite-icon
+*/
+
 :host {
-  display: inline-block;
-  width: auto;
-  vertical-align: middle;
+  @apply inline-block w-auto align-middle;
 }
 
 // fab variants
@@ -16,43 +19,50 @@
 // focus styles
 :host button,
 :host a {
-  @include focus-style-base();
+  @apply focus-base;
   &:focus {
-    @include focus-style-outset();
+    @apply focus-outset;
   }
 }
 // button base
 :host button,
 :host a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: $baseline/4 1rem;
-  text-decoration: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  border: none;
-  user-select: none;
-  font-family: inherit;
-  -webkit-appearance: none;
-  cursor: pointer;
-  text-align: center;
-  box-sizing: border-box;
+  @apply relative
+    flex
+    items-center
+    justify-center
+    no-underline
+    w-full
+    h-full
+    rounded-none
+    border-none
+    select-none
+    font-inherit
+    appearance-none
+    cursor-pointer
+    text-center
+    box-border;
+  padding: 0.1875rem 1rem;
   // include transition from focus
   transition: background-color 0.15s ease-in-out, border 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
     outline-offset 100ms ease-in-out, outline-color 100ms ease-in-out;
   &:hover {
-    text-decoration: none;
+    @apply no-underline;
   }
 }
 
 .content {
-  display: flex;
-  flex-basis: auto;
-  margin-left: $baseline/3;
-  margin-right: $baseline/3;
+  @apply flex;
+}
+
+:host([scale="s"]) .content {
+  @apply ml-2 mr-2;
+}
+:host([scale="m"]) .content {
+  @apply ml-3 mr-3;
+}
+:host([scale="l"]) .content {
+  @apply ml-4 mr-4;
 }
 
 :host(:not([icon-start])) {
@@ -68,29 +78,27 @@
 :host([icon-start]:not([icon-end])) {
   .calcite--rtl .content {
     margin-left: unset;
-    margin-right: $baseline/3;
+    margin-right: calc(theme("spacing.6") / 3);
   }
 }
 :host([icon-end]:not([icon-start])) {
   .calcite--rtl .content {
     margin-right: unset;
-    margin-left: $baseline/3;
+    margin-left: calc(theme("spacing.6") / 3);
   }
 }
 
-// button scale
+// button scale (TEMP: RETAINED MIXINS FOR INPUT, INLINE-EDITABLE)
 @mixin btn-scale($font-size, $line-height, $padding-y, $padding-x) {
   padding: $padding-y $padding-x;
   font-size: $font-size;
   line-height: $line-height;
 }
-
 @mixin btn-scale-notext($font-size, $size) {
   height: $size;
   width: $size;
   font-size: $font-size;
 }
-
 @mixin btn-scale-notext-two-icons($font-size, $size) {
   height: $size;
   width: $size * 1.5;
@@ -99,45 +107,45 @@
 
 // button width
 :host([width="auto"]) {
-  width: auto;
+  @apply w-auto;
 }
 
 :host([width="half"]) {
-  width: 50%;
+  @apply w-3/6;
 }
 
 :host([width="full"]) {
-  width: 100%;
+  @apply w-full;
 }
 
 // alignment
 :host([alignment="center"]:not([width="auto"])) {
   a,
   button {
-    justify-content: center;
+    @apply justify-center;
   }
 }
 :host([alignment="start"]:not([width="auto"])) {
   a,
   button {
-    justify-content: flex-start;
+    @apply justify-start;
   }
 }
 :host([alignment="end"]:not([width="auto"])) {
   a,
   button {
-    justify-content: flex-end;
+    @apply justify-end;
   }
 }
 :host([alignment*="space-between"]:not([width="auto"])) {
   a,
   button {
-    justify-content: space-between;
+    @apply justify-between;
   }
 }
 :host([alignment="icon-start-space-between"]:not([width="auto"])) {
   .icon--start {
-    margin-right: auto;
+    @apply mr-auto;
   }
   a,
   button {
@@ -146,7 +154,7 @@
 }
 :host([alignment="icon-end-space-between"]:not([width="auto"])) {
   .icon--end {
-    margin-left: auto;
+    @apply ml-auto;
   }
   a,
   button {
@@ -156,77 +164,116 @@
 :host([alignment="icon-start-space-between"]:not([width="auto"])) {
   .calcite--rtl .icon--start {
     margin-right: unset;
-    margin-left: auto;
+    @apply ml-auto;
   }
 }
 :host([alignment="icon-end-space-between"]:not([width="auto"])) {
   .calcite--rtl .icon--end {
     margin-left: unset;
-    margin-right: auto;
+    @apply mr-auto;
   }
 }
 
 // only two icons
+// LTR
 :host([alignment="center"]) {
-  a:not(.content--slotted),
-  button:not(.content--slotted) {
-    .icon--start + .icon--end {
-      margin-left: $baseline/3;
-    }
-  }
-}
-
-:host([alignment="center"]) {
-  .calcite--rtl {
+  &:host([scale="s"]) {
     a:not(.content--slotted),
     button:not(.content--slotted) {
       .icon--start + .icon--end {
+        margin-left: 8px;
+      }
+    }
+  }
+  &:host([scale="m"]) {
+    a:not(.content--slotted),
+    button:not(.content--slotted) {
+      .icon--start + .icon--end {
+        margin-left: 12px;
+      }
+    }
+  }
+  &:host([scale="l"]) {
+    a:not(.content--slotted),
+    button:not(.content--slotted) {
+      .icon--start + .icon--end {
+        margin-left: 16px;
+      }
+    }
+  }
+}
+// RTL
+:host([alignment="center"]) {
+  &:host([scale="s"]) {
+    a:not(.content--slotted),
+    button.calcite--rtl:not(.content--slotted) {
+      .icon--start + .icon--end {
         margin-left: unset;
-        margin-right: $baseline/3;
+        margin-right: 8px;
+      }
+    }
+  }
+  &:host([scale="m"]) {
+    a:not(.content--slotted),
+    button.calcite--rtl:not(.content--slotted) {
+      .icon--start + .icon--end {
+        margin-left: unset;
+        margin-right: 12px;
+      }
+    }
+  }
+  &:host([scale="l"]) {
+    a:not(.content--slotted),
+    button.calcite--rtl:not(.content--slotted) {
+      .icon--start + .icon--end {
+        margin-left: unset;
+        margin-right: 16px;
       }
     }
   }
 }
 
 .icon {
-  display: inline-flex;
-  position: relative;
-  margin: 0;
+  @apply inline-flex
+    relative
+    m-0
+    transition-default;
   line-height: inherit;
-  transition: $transition;
 }
 
 // disabled styles
 :host([disabled]) {
-  pointer-events: none;
+  @apply pointer-events-none;
   button,
   a {
-    pointer-events: none;
-    opacity: var(--calcite-ui-opacity-disabled);
+    @apply pointer-events-none opacity-disabled;
   }
 }
 
 .calcite-button--loader {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  align-items: center;
-  justify-content: center;
+  @apply flex
+    absolute
+    top-0
+    left-0
+    right-0
+    bottom-0
+    items-center
+    justify-center;
   calcite-loader {
-    margin: 0;
+    @apply m-0;
   }
 }
 
 :host([loading]) {
+  calcite-loader {
+    --calcite-loader-size-inline: theme("height.3");
+  }
   button,
   a {
     color: transparent !important;
-    pointer-events: none;
+    @apply pointer-events-none;
     .calcite-button--icon {
-      opacity: 0;
+      @apply opacity-0;
     }
   }
 }
@@ -236,7 +283,7 @@
 @mixin btn-solid($bg-color, $bg-color-hover, $bg-color-press, $color) {
   color: $color;
   background-color: $bg-color;
-  border: 1px solid transparent;
+  @apply border border-solid border-color-transparent;
   &:hover,
   &:focus {
     background-color: $bg-color-hover;
@@ -495,7 +542,7 @@
   }
 }
 
-// generate button scales
+// generate button scales (RETAIN FOR INPUT,INLINE-EDITABLE BUTTONS)
 $btnScales: "s" 12px 1.33 7px 12px, "m" 14px 1.15 13px 20px, "l" 18px 1.2 15px 24px;
 @each $btnScale in $btnScales {
   $name: nth($btnScale, 1);
@@ -504,42 +551,200 @@ $btnScales: "s" 12px 1.33 7px 12px, "m" 14px 1.15 13px 20px, "l" 18px 1.2 15px 2
   $padding-y: nth($btnScale, 4);
   $padding-x: nth($btnScale, 5);
 
-  :host([scale="#{$name}"]:not([appearance="transparent"])) button.content--slotted,
-  :host([scale="#{$name}"]:not([appearance="transparent"])) a.content--slotted {
+  :host([scale="#{$name}"][slot="action"]:not([appearance="transparent"])) button.content--slotted,
+  :host([scale="#{$name}"].sc-calcite-inline-editable:not([appearance="transparent"])) button,
+  :host([scale="#{$name}"][slot="action"]:not([appearance="transparent"])) a.content--slotted {
     @include btn-scale($font-size, $line-height, $padding-y, $padding-x);
   }
   // accomodate for transparent buttons not having borders
-  :host([scale="#{$name}"][appearance="transparent"]) button.content--slotted,
-  :host([scale="#{$name}"][appearance="transparent"]) a.content--slotted {
+  :host([scale="#{$name}"][slot="action"][appearance="transparent"]) button.content--slotted,
+  :host([scale="#{$name}"].sc-calcite-inline-editable[appearance="transparent"]) button,
+  :host([scale="#{$name}"][slot="action"][appearance="transparent"]) a.content--slotted {
     $compensated-padding-y: $padding-y + 1px;
     @include btn-scale($font-size, $line-height, $compensated-padding-y, $padding-x);
   }
 }
-
 // generate fab scales
 $btnScales2: "s" 12px 32px, "m" 14px 44px, "l" 18px 56px;
-
 @each $btnScale in $btnScales2 {
   $name: nth($btnScale, 1);
   $font-size: nth($btnScale, 2);
   $size: nth($btnScale, 3);
 
-  :host([scale="#{$name}"]) button:not(.content--slotted),
-  :host([scale="#{$name}"]) a:not(.content--slotted) {
+  :host([scale="#{$name}"][slot="action"]) button:not(.content--slotted),
+  :host([scale="#{$name}"].sc-calcite-inline-editable) button:not(.content--slotted),
+  :host([scale="#{$name}"][slot="action"]) a:not(.content--slotted) {
     @include btn-scale-notext($font-size, $size);
   }
 }
-
 // generate fab scales
 $btnScales3: "s" 12px 32px, "m" 14px 44px, "l" 18px 56px;
-
 @each $btnScale in $btnScales3 {
   $name: nth($btnScale, 1);
   $font-size: nth($btnScale, 2);
   $size: nth($btnScale, 3);
 
-  :host([scale="#{$name}"][icon-start][icon-end]) button:not(.content--slotted),
-  :host([scale="#{$name}"][icon-start][icon-end]) a:not(.content--slotted) {
+  :host([scale="#{$name}"][slot="action"][icon-start][icon-end]) button:not(.content--slotted),
+  :host([scale="#{$name}"][slot="action"][icon-start][icon-end]) a:not(.content--slotted) {
     @include btn-scale-notext-two-icons($font-size, $size);
   }
+}
+
+/* NEW button scales (scenario: text only) */
+/* SMALL */
+:host([scale="s"]) button.content--slotted,
+:host([scale="s"]) a.content--slotted {
+  @apply text--2h;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+:host([scale="s"]:not([appearance="transparent"])) button.content--slotted,
+:host([scale="s"]:not([appearance="transparent"])) a.content--slotted {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="s"][appearance="transparent"]) button.content--slotted,
+:host([scale="s"][appearance="transparent"]) a.content--slotted {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+/* MEDIUM */
+:host([scale="m"]) button.content--slotted,
+:host([scale="m"]) a.content--slotted {
+  @apply text--1h;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+:host([scale="m"]:not([appearance="transparent"])) button.content--slotted,
+:host([scale="m"]:not([appearance="transparent"])) a.content--slotted {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="m"][appearance="transparent"]) button.content--slotted,
+:host([scale="m"][appearance="transparent"]) a.content--slotted {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+/* LARGE */
+:host([scale="l"]) button.content--slotted,
+:host([scale="l"]) a.content--slotted {
+  @apply text-0h;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+:host([scale="l"]:not([appearance="transparent"])) button.content--slotted,
+:host([scale="l"]:not([appearance="transparent"])) a.content--slotted {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="l"][appearance="transparent"]) button.content--slotted,
+:host([scale="l"][appearance="transparent"]) a.content--slotted {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* fab scales (scenario: 1 icon, ie., should be square) */
+/* SMALL */
+:host([scale="s"]) button:not(.content--slotted),
+:host([scale="s"]) a:not(.content--slotted) {
+  @apply text-0h;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 24px;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="s"][appearance="transparent"]) button:not(.content--slotted),
+:host([scale="s"][appearance="transparent"]) a:not(.content--slotted) {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+/* MEDIUM */
+:host([scale="m"]) button:not(.content--slotted),
+:host([scale="m"]) a:not(.content--slotted) {
+  @apply text-0h;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 32px;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="m"][appearance="transparent"]) button:not(.content--slotted),
+:host([scale="m"][appearance="transparent"]) a:not(.content--slotted) {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+/* LARGE */
+:host([scale="l"]) button:not(.content--slotted),
+:host([scale="l"]) a:not(.content--slotted) {
+  @apply text-0h;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 44px;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="l"][appearance="transparent"]) button:not(.content--slotted),
+:host([scale="l"][appearance="transparent"]) a:not(.content--slotted) {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* fab scales (scenario: 2 icons, ie., should not be square) */
+/* SMALL */
+:host([scale="s"][icon-start][icon-end]) button:not(.content--slotted),
+:host([scale="s"][icon-start][icon-end]) a:not(.content--slotted) {
+  @apply text-0h;
+  padding-left: 23px;
+  padding-right: 23px;
+  height: 24px;
+  width: 24px * 1.5;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="s"][icon-start][icon-end][appearance="transparent"]) button:not(.content--slotted),
+:host([scale="s"][icon-start][icon-end][appearance="transparent"]) a:not(.content--slotted) {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+/* MEDIUM */
+:host([scale="m"][icon-start][icon-end]) button:not(.content--slotted),
+:host([scale="m"][icon-start][icon-end]) a:not(.content--slotted) {
+  @apply text-0h;
+  padding-left: 32px;
+  padding-right: 32px;
+  height: 32px;
+  width: 32px * 1.5;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="m"][icon-start][icon-end][appearance="transparent"]) button:not(.content--slotted),
+:host([scale="m"][icon-start][icon-end][appearance="transparent"]) a:not(.content--slotted) {
+  padding-left: 33px;
+  padding-right: 33px;
+}
+/* LARGE */
+:host([scale="l"][icon-start][icon-end]) button:not(.content--slotted),
+:host([scale="l"][icon-start][icon-end]) a:not(.content--slotted) {
+  @apply text-0h;
+  padding-left: 43px;
+  padding-right: 43px;
+  height: 44px;
+  width: 44px * 1.5;
+}
+// accommodate for transparent buttons not having borders
+:host([scale="l"][icon-start][icon-end][appearance="transparent"]) button:not(.content--slotted),
+:host([scale="l"][icon-start][icon-end][appearance="transparent"]) a:not(.content--slotted) {
+  padding-left: 44px;
+  padding-right: 44px;
 }

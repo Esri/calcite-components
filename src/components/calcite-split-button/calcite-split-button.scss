@@ -2,8 +2,27 @@
   .split-button__container {
     @apply flex items-stretch;
     > calcite-dropdown > calcite-button {
-      @apply h-full;
+      @apply h-full align-baseline;
     }
+  }
+}
+
+:host([scale="s"]) {
+  calcite-dropdown,
+  calcite-button {
+    height: theme("spacing.6");
+  }
+}
+:host([scale="m"]) {
+  calcite-dropdown,
+  calcite-button {
+    height: theme("spacing.8");
+  }
+}
+:host([scale="l"]) {
+  calcite-dropdown,
+  calcite-button {
+    height: theme("spacing.11");
   }
 }
 
