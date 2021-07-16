@@ -1,5 +1,6 @@
-import { Component, h, VNode, Host } from "@stencil/core";
+import { Component, h, VNode, Host, Prop } from "@stencil/core";
 import { CSS } from "./resources";
+import { HeadingLevel } from "../functional/CalciteHeading";
 
 /**
  * A general purpose list that enables users to construct list items that conform to Calcite styling.
@@ -11,6 +12,17 @@ import { CSS } from "./resources";
   shadow: true
 })
 export class CalciteList {
+  // --------------------------------------------------------------------------
+  //
+  //  Properties
+  //
+  // --------------------------------------------------------------------------
+
+  /**
+   * Number at which section headings should start for this component.
+   */
+  @Prop() headingLevel: HeadingLevel;
+
   // --------------------------------------------------------------------------
   //
   //  Render Methods

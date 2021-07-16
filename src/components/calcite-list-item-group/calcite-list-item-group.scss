@@ -1,0 +1,15 @@
+host {
+  @apply flex w-full;
+}
+
+.heading {
+  @apply font-sans bg-foreground-2 text--1 font-bold m-0 p-3 text-color-2 flex flex-1;
+}
+
+.container {
+  @apply w-full flex flex-col bg-foreground-1;
+}
+
+::slotted(calcite-list-item-group) {
+  @apply pl-2;
+}

@@ -126,6 +126,9 @@ export class CalciteListItem {
           {this.renderContentContainer()}
           {this.renderActionsEnd()}
         </div>
+        <div class={CSS.nestedContainer}>
+          <slot />
+        </div>
       </Host>
     );
   }
