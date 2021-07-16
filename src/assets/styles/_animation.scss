@@ -39,3 +39,31 @@
     transform: scale3D(1, 1, 1);
   }
 }
+
+:root {
+  --calcite-animation-timing: 0.6s;
+}
+
+// allows animation trigger vis JS by adding class to element
+.calcite-animate {
+  opacity: 0;
+  animation-fill-mode: both;
+  animation-duration: var(--calcite-animation-timing);
+}
+
+// specify animation
+.calcite-animate__in {
+  animation-name: in;
+}
+
+.calcite-animate__in-down {
+  animation-name: in-down;
+}
+
+.calcite-animate__in-up {
+  animation-name: in-up;
+}
+
+.calcite-animate__in-scale {
+  animation-name: in-scale;
+}
