@@ -35,12 +35,31 @@
     <section>
       <!-- src/components/calcite-input/usage/.md -->
       <div>
-        <h3>Basic</h3>
-        <calcite-input value="Entered value" placeholder="My placeholder"></calcite-input>
+        <h3>Scale</h3>
+        <calcite-label scale="s">
+          Small Input
+          <calcite-input value="Entered value" placeholder="My placeholder"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="m">
+          Medium Input
+          <calcite-input value="Entered value" placeholder="My placeholder"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Large Input
+          <calcite-input value="Entered value" placeholder="My placeholder"></calcite-input>
+        </calcite-label>
       </div>
       <div>
         <h3>Clearable</h3>
+        <calcite-label scale="s">
+          Clearable item
+          <calcite-input clearable value="My great name" placeholder="John Doe"></calcite-input>
+        </calcite-label>
         <calcite-label>
+          Clearable item
+          <calcite-input clearable value="My great name" placeholder="John Doe"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
           Clearable item
           <calcite-input clearable value="My great name" placeholder="John Doe"></calcite-input>
         </calcite-label>
@@ -55,12 +74,139 @@
       </div>
       <div>
         <h3>With message</h3>
+        <calcite-label scale="s">
+          My great label
+          <calcite-input placeholder="Enter your information"></calcite-input>
+          <calcite-input-message icon="3d-glasses" active status="idle">
+            Here's something you should know about this input
+          </calcite-input-message>
+        </calcite-label>
         <calcite-label>
           My great label
           <calcite-input placeholder="Enter your information"></calcite-input>
-          <calcite-input-message icon="3d-glasses" active>
+          <calcite-input-message icon="3d-glasses" active status="valid">
             Here's something you should know about this input
           </calcite-input-message>
+        </calcite-label>
+        <calcite-label scale="l">
+          My great label
+          <calcite-input placeholder="Enter your information"></calcite-input>
+          <calcite-input-message icon="3d-glasses" active status="invalid">
+            Here's something you should know about this input
+          </calcite-input-message>
+        </calcite-label>
+        <h3>With icon</h3>
+        <calcite-label scale="s">
+          Input with an icon
+          <calcite-input placeholder="Enter your information" icon="banana"></calcite-input>
+        </calcite-label>
+        <calcite-label>
+          Input with an icon
+          <calcite-input placeholder="Enter your information" icon="banana"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Input with an icon
+          <calcite-input placeholder="Enter your information" icon="banana"></calcite-input>
+        </calcite-label>
+      </div>
+      <div>
+        <h3>Textarea</h3>
+        <calcite-label scale="s">
+          Textarea
+          <calcite-input type="textarea" placeholder="Enter your information"></calcite-input>
+        </calcite-label>
+        <calcite-label>
+          Textarea
+          <calcite-input type="textarea" placeholder="Enter your information"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Textarea
+          <calcite-input type="textarea" placeholder="Enter your information"></calcite-input>
+        </calcite-label>
+      </div>
+      <div>
+        <h3>Numeric Inputs</h3>
+        <calcite-label scale="s">
+          Horizontal buttons
+          <calcite-input type="number" number-button-type="horizontal"></calcite-input>
+        </calcite-label>
+        <calcite-label>
+          Horizontal buttons
+          <calcite-input type="number" number-button-type="horizontal"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Horizontal buttons
+          <calcite-input type="number" number-button-type="horizontal"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="s">
+          Vertical buttons
+          <calcite-input type="number" number-button-type="vertical"></calcite-input>
+        </calcite-label>
+        <calcite-label>
+          Vertical buttons
+          <calcite-input type="number" number-button-type="vertical"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Vertical buttons
+          <calcite-input type="number" number-button-type="vertical"></calcite-input>
+        </calcite-label>
+      </div>
+      <div>
+        <h3>With Prefix and suffix</h3>
+        <calcite-label scale="s">
+          Prefixed and suffixed
+          <calcite-input prefix-text="pre" suffix-text="suf" placeholder="Enter your information"></calcite-input>
+        </calcite-label>
+        <calcite-label>
+          Prefixed and suffixed
+          <calcite-input prefix-text="pre" suffix-text="suf" placeholder="Enter your information"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Prefixed and suffixed
+          <calcite-input prefix-text="pre" suffix-text="suf" placeholder="Enter your information"></calcite-input>
+        </calcite-label>
+      </div>
+      <div>
+        <h3>Slotted action</h3>
+        <calcite-label scale="s">
+          Prefixed and suffixed
+          <calcite-input type="number" prefix-text="pre" suffix-text="suf" placeholder="Enter your information">
+            <calcite-button scale="s" slot="action">Action</calcite-button>
+          </calcite-input>
+        </calcite-label>
+        <calcite-label>
+          Prefixed and suffixed
+          <calcite-input type="number" prefix-text="pre" suffix-text="suf" placeholder="Enter your information">
+            <calcite-button slot="action">Action</calcite-button>
+          </calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Prefixed and suffixed
+          <calcite-input type="number" prefix-text="pre" suffix-text="suf" placeholder="Enter your information">
+            <calcite-button scale="l" slot="action">Action</calcite-button>
+          </calcite-input>
+        </calcite-label>
+      </div>
+      <div>
+        <h3>File Upload</h3>
+        <calcite-label scale="s">
+          Upload a file
+          <calcite-input type="file"></calcite-input>
+        </calcite-label>
+        <calcite-label>
+          Upload a file
+          <calcite-input type="file"></calcite-input>
+        </calcite-label>
+        <calcite-label scale="l">
+          Upload a file
+          <calcite-input type="file"></calcite-input>
+        </calcite-label>
+      </div>
+      <div>
+        <h3>Loading</h3>
+        <calcite-label scale="m">
+          Loading
+          <calcite-input loading value="Entered value" placeholder="My placeholder"></calcite-input>
         </calcite-label>
       </div>
     </section>

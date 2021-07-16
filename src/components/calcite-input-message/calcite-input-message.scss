@@ -1,120 +1,50 @@
-/**
- * CSS Custom Properties
- *
- * These properties can be overridden using the component's tag as selector.
- *
- * @prop --calcite-input-message-spacing-value: when type is default, the top margin above the input-message.
- *   When type is floating, the amount of padding around the input-message.
- */
-
-:host([scale="s"]) {
-  --calcite-input-message-spacing-value: 4px;
-  .calcite-input-message-icon {
-    margin-top: -2px;
-  }
-}
-
-:host([scale="m"]) {
-  --calcite-input-message-spacing-value: 8px;
-}
-
-:host([scale="l"]) {
-  --calcite-input-message-spacing-value: 12px;
-}
-
 :host {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  color: var(--calcite-ui-text-2);
-  font-weight: 500;
-  line-height: 1.25;
-  transition: $transition;
-  visibility: hidden;
-  opacity: 0;
-  height: 0;
-  pointer-events: none;
+  @apply flex
+    items-center
+    w-full
+    box-border
+    text-color-1
+    font-medium
+    invisible
+    h-0
+    pointer-events-none
+    opacity-0;
 }
 
 :host([active]) {
-  opacity: 1;
-  height: auto;
-  visibility: visible;
-  margin-top: var(--calcite-input-message-spacing-value);
+  @apply h-auto
+    visible
+    opacity-100;
 }
 
-:host([type="floating"]) {
-  transform: translate3d(0, -$baseline, 0);
-  background-color: var(--calcite-input-message-floating-background);
-  position: absolute;
-  width: 100%;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: auto;
-  // accommodate for spacing of label
-  margin-top: -1.5rem;
-  border-radius: theme("borderRadius.sm");
-  box-shadow: theme("boxShadow.2");
-  padding: var(--calcite-input-message-spacing-value);
-  z-index: 101;
-}
-
-:host([type="floating"][active]) {
-  transform: translate3d(0, 0, 0);
+:host([active][scale="m"]),
+:host([active][scale="l"]) {
+  @apply mt-1;
 }
 
 .calcite-input-message-icon {
-  display: inline-flex;
-  flex-shrink: 0;
-  pointer-events: none;
-  transition: $transition;
-  margin: -1px $baseline/2 0 0;
-  transition: $transition;
+  @apply inline-flex
+    flex-shrink-0
+    pointer-events-none
+    mr-2;
 }
 
 .calcite-input-message-icon.calcite--rtl {
-  margin: -1px 0 0 $baseline/2;
-}
-// status
-$inputStatusColors: "invalid" var(--calcite-ui-danger) var(--calcite-ui-danger)
-    var(--calcite-input-status-invalid-focus-shadow-color),
-  "valid" var(--calcite-ui-success) var(--calcite-ui-success) var(--calcite-input-status-valid-focus-shadow-color),
-  "idle" var(--calcite-ui-brand) var(--calcite-ui-brand) var(--calcite-input-status-valid-focus-shadow-color);
-
-@each $statusColor in $inputStatusColors {
-  $name: nth($statusColor, 1);
-  $color: nth($statusColor, 2);
-  $colorHover: nth($statusColor, 3);
-  $shadowColor: nth($statusColor, 4);
-
-  :host([status="#{$name}"]) {
-    & .calcite-input-message-icon {
-      color: $color;
-    }
-  }
+  @apply ml-2 mr-0;
 }
 
-:host([type="floating"][active]) {
-  animation: floatingMessagePulse 0.5s ease-in-out;
-  animation-iteration-count: 1;
+:host([status="invalid"]) .calcite-input-message-icon {
+  color: var(--calcite-ui-danger);
 }
 
-@keyframes floatingMessagePulse {
-  0% {
-    top: 100%;
-  }
-  25% {
-    top: 110%;
-  }
-  50% {
-    top: 100%;
-  }
-  75% {
-    top: 105%;
-  }
-  100% {
-    top: 100%;
-  }
+:host([status="warning"]) .calcite-input-message-icon {
+  color: var(--calcite-ui-warning);
+}
+
+:host([status="valid"]) .calcite-input-message-icon {
+  color: var(--calcite-ui-success);
+}
+
+:host([status="idle"]) .calcite-input-message-icon {
+  color: var(--calcite-ui-brand);
 }

@@ -29,7 +29,8 @@
 }
 
 :host label {
-  @apply cursor-pointer
+  @apply text-color-1
+    cursor-pointer
     w-full
     mt-0
     mr-0
@@ -76,19 +77,6 @@
   }
   ::slotted(calcite-input-message:not([active])) {
     @apply bg-opacity-0;
-  }
-}
-
-// status
-$inputStatusColors: "invalid" var(--calcite-ui-danger), "valid" var(--calcite-ui-text-2),
-  "idle" var(--calcite-ui-text-2);
-
-@each $statusColor in $inputStatusColors {
-  $name: nth($statusColor, 1);
-  $color: nth($statusColor, 2);
-
-  :host([status="#{$name}"]) label {
-    color: $color;
   }
 }
 

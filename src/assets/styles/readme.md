@@ -113,7 +113,7 @@ Inset focus style
 
 ```
 .my-element-class:focus {
-  @include focus-style-inset();
+  @include focus-style-inset(var(--calcite-ui-brand));
 }
 ```
 

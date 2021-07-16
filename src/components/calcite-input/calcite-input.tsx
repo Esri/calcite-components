@@ -575,15 +575,13 @@ export class CalciteInput {
       </div>
     );
 
-    const iconScale = this.scale === "s" || this.scale === "m" ? "s" : "m";
-
     const inputClearButton = (
       <button
         class="calcite-input-clear-button"
         disabled={this.loading}
         onClick={this.clearInputValue}
       >
-        <calcite-icon icon="x" scale={iconScale} />
+        <calcite-icon icon="x" scale="s" />
       </button>
     );
     const iconEl = (
@@ -592,7 +590,7 @@ export class CalciteInput {
         dir={dir}
         flipRtl={this.iconFlipRtl}
         icon={this.requestedIcon}
-        scale={iconScale}
+        scale="s"
       />
     );
 
@@ -605,7 +603,7 @@ export class CalciteInput {
         data-adjustment="up"
         onMouseDown={this.numberButtonMouseDownHandler}
       >
-        <calcite-icon icon="chevron-up" scale={iconScale} />
+        <calcite-icon icon="chevron-up" scale="s" />
       </div>
     );
 
@@ -615,7 +613,7 @@ export class CalciteInput {
         data-adjustment="down"
         onMouseDown={this.numberButtonMouseDownHandler}
       >
-        <calcite-icon icon="chevron-down" scale={iconScale} />
+        <calcite-icon icon="chevron-down" scale="s" />
       </div>
     );
 

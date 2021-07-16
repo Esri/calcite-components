@@ -111,7 +111,7 @@
   @include focus-style-base();
 }
 :host(:focus) {
-  @include focus-style-inset();
+  @include focus-style-inset(var(--calcite-ui-brand));
 }
 
 .calcite-tree-checkbox {
