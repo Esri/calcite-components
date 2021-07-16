@@ -18,8 +18,9 @@ The `calcite-progress` component is used to show progress on some async task to 
 
 | Property   | Attribute  | Description                                                      | Type                               | Default         |
 | ---------- | ---------- | ---------------------------------------------------------------- | ---------------------------------- | --------------- |
+| `label`    | `label`    | Label for the progress indicator                                 | `string`                           | `undefined`     |
 | `reversed` | `reversed` | For indeterminate progress bars, reverse the animation direction | `boolean`                          | `false`         |
-| `text`     | `text`     | Text label for the progress indicator                            | `string`                           | `null`          |
+| `text`     | `text`     | Text to display for the progress indicator                       | `string`                           | `undefined`     |
 | `type`     | `type`     | Use indeterminate if finding actual progress value is impossible | `"determinate" \| "indeterminate"` | `"determinate"` |
 | `value`    | `value`    | Fraction completed, in the range of 0 - 1.0                      | `number`                           | `0`             |
 
