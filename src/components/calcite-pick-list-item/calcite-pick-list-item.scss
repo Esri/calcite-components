@@ -10,31 +10,38 @@
   animation: calcite-fade-in $transition;
 }
 
-:host(:hover) {
-  @apply bg-foreground-2;
+:host(:hover) .icon,
+:host(:hover) .label {
+ @apply bg-foreground-2;
 }
 
 .icon {
-  @apply items-center flex my-0 mx-2 opacity-0 cursor-pointer;
-  color: theme("colors.brand");
-  flex: 0 0 auto;
-  line-height: 0;
+ @apply items-center flex my-0 p-3 cursor-pointer;
+ color: theme("colors.brand");
+ flex: 0 0 auto;
+ line-height: 0;
 }
-
+ 
 .icon-dot {
-  @apply w-2 m-2;
-  &:before {
-    content: "\2022";
-  }
+ @apply items-center flex w-6 p-2;
+ &:before {
+ @apply opacity-0;
+ content: "\2022";
+ }
 }
-
-:host([selected]) .icon {
-  transition: opacity $transition;
-  @apply opacity-100;
+ 
+.icon calcite-icon {
+ @apply opacity-0;
+}
+ 
+:host([selected]) .icon-dot:before,
+:host([selected]) .icon calcite-icon {
+ transition: opacity $transition;
+ @apply opacity-100;
 }
 
 .label {
-  @apply bg-transparent flex flex-auto px-3 py-2 items-center cursor-pointer focus-base;
+  @apply bg-transparent flex flex-auto items-center cursor-pointer focus-base;
   &:focus {
     @apply focus-inset;
   }
@@ -44,8 +51,8 @@
   @apply flex
     overflow-hidden
     pointer-events-none
-    py-0
-    px-1
+    py-3
+    px-3
     text--2-wrap
     word-break;
   flex-flow: column nowrap;
@@ -61,8 +68,14 @@
 
 .actions {
   @apply items-stretch flex justify-end m-0;
-  flex: 0 0 auto;
+  flex-grow: 1 1 auto;
+  flex-shrink: 1 1 auto;
 }
+
+button.button {
+  padding: .5rem 1rem
+}
+
 
 .actions--start ~ .label {
   @apply pl-1;
@@ -72,3 +85,6 @@
   padding-left: unset;
   @apply pr-1;
 }
+
+
+// :host([selected]) .icon { transition: opacity $transition; @apply opacity-100;}
