@@ -17,9 +17,9 @@ The tab-title is the link that switches between panes in [calcite-tabs](../calci
 
 ## Events
 
-| Event                 | Description                                                                                                    | Type                                |
-| --------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `calciteTabsActivate` | Fires when a specific tab is activated. `event.details`: [TabChangeEventDetail](../../interfaces/TabChange.ts) | `CustomEvent<TabChangeEventDetail>` |
+| Event                 | Description                                              | Type                                |
+| --------------------- | -------------------------------------------------------- | ----------------------------------- |
+| `calciteTabsActivate` | Fires when a specific tab is activated (`event.details`) | `CustomEvent<TabChangeEventDetail>` |
 
 ## Methods
 
