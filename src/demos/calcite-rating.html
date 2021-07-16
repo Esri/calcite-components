@@ -6,165 +6,453 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Calcite Rating</title>
     <style>
-      .demo-background-dark {
-        background: #202020;
-        color: white;
-        padding: 1rem;
+      .parent {
+        display: flex;
+        width: 75%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 0;
+      }
+
+      .child {
+        flex: 0 1 21%;
+        margin: 0 25px;
+        color: var(--calcite-ui-text-3);
+        font-family: var(--calcite-sans-family);
+        font-size: var(--calcite-font-size-0);
+        font-weight: var(--calcite-font-weight-medium);
+      }
+
+      .right-aligned-text {
+        text-align: right;
+      }
+
+      hr {
+        margin: 25px 0;
+        border-top: 1px solid var(--calcite-ui-border-2);
       }
     </style>
     <script src="./_assets/head.js"></script>
   </head>
 
   <body>
-    <calcite-button href="/">Home</calcite-button>
-    <h1>Calcite Rating</h1>
-    <div style="display: flex; flex-direction: row">
-      <div style="display: flex; width: 50%; flex-direction: column">
-        <h2>Default</h2>
-        <h5>Default with average</h5>
-        <calcite-rating average="3.65"></calcite-rating>
-        <h5>Default with value</h5>
-        <calcite-rating value="2"></calcite-rating>
-        <h5>Default with average and value</h5>
-        <calcite-rating average="3.65" value="2"></calcite-rating>
-        <h5>Default without average or value</h5>
-        <calcite-rating></calcite-rating>
-        <h5>Default with average, show chip</h5>
-        <calcite-rating average="3.65" show-chip></calcite-rating>
-        <h5>Default with average, value, and count; show chip</h5>
-        <calcite-rating average="3.65" value="2" count="240" show-chip></calcite-rating>
+    <div>
+      <calcite-button href="/" icon-start="arrow-left" color="neutral"> Home </calcite-button>
+    </div>
 
-        <h2>Wrapped in calcite-label</h2>
-        <calcite-label>
-          Rate this item
-          <calcite-rating average="2.35" count="14"></calcite-rating>
-        </calcite-label>
-        <calcite-label layout="inline">
-          Rate this item
-          <calcite-rating average="2.35" count="14"></calcite-rating>
-        </calcite-label>
-        <calcite-label layout="inline-space-between">
-          Rate this item
-          <calcite-rating average="2.35" count="14"></calcite-rating>
-        </calcite-label>
-        <h2>Read only</h2>
-        <h5>Read only with average</h5>
-        <calcite-rating read-only average="3.65"></calcite-rating>
-        <h5>Read only with value</h5>
-        <calcite-rating read-only value="3"></calcite-rating>
-        <h5>Read only with average and value</h5>
-        <calcite-rating read-only average="3.65" value="2" count="31"></calcite-rating>
-        <h5>Read only without average or value</h5>
-        <calcite-rating read-only></calcite-rating>
+    <h1 style="margin: 0 auto; text-align: center">Rating</h1>
 
-        <h2>Disabled</h2>
-        <h5>Disabled with average</h5>
-        <calcite-rating disabled average="3.65"></calcite-rating>
-        <h5>Disabled with value</h5>
-        <calcite-rating disabled value="3"></calcite-rating>
-        <h5>Disabled with average and value</h5>
-        <calcite-rating disabled average="3.65" value="2"></calcite-rating>
-        <h5>Disabled without average or value</h5>
-        <calcite-rating disabled></calcite-rating>
+    <!-- small, medium, and large -->
+    <div class="parent">
+      <div class="child"></div>
+      <div class="child">Small</div>
+      <div class="child">Medium</div>
+      <div class="child">Large</div>
+    </div>
 
-        <h2>Icon Types</h2>
-        <h5>Star (Default)</h5>
-        <calcite-rating> </calcite-rating>
+    <!-- 
+      **************************************************
+      * DEFAULT
+      **************************************************
+    -->
 
-        <h2>Scales</h2>
-        <h5>S</h5>
+    <!-- Default -->
+    <div class="parent">
+      <div class="child right-aligned-text">Default</div>
+
+      <div class="child">
         <calcite-rating scale="s"></calcite-rating>
-        <calcite-rating average="4.24" count="214" scale="s"></calcite-rating>
-        <h5>M (Default)</h5>
-        <calcite-rating></calcite-rating>
-        <h5>L</h5>
-        <calcite-rating scale="l"></calcite-rating>
-        <calcite-rating average="4.24" count="214" scale="l"></calcite-rating>
-
-        <h2>Chip combinations</h2>
-        <calcite-rating average="2.35" count="14"></calcite-rating><br />
-        <calcite-rating average="2.35" value="4"></calcite-rating><br />
-        <calcite-rating count="14"></calcite-rating>
-        <div dir="rtl">
-          <h2>RTL</h2>
-          <calcite-rating average="2.35" count="14"></calcite-rating><br />
-          <calcite-rating average="2.35" value="4"></calcite-rating><br />
-          <calcite-rating count="14"></calcite-rating>
-        </div>
       </div>
-      <div style="display: flex; width: 50%; flex-direction: column">
-        <div class="demo-background-dark">
-          <h2>Default</h2>
-          <h5>Default with average</h5>
-          <calcite-rating class="calcite-theme-dark" average="3.65"></calcite-rating>
-          <h5>Default with value</h5>
-          <calcite-rating class="calcite-theme-dark" value="3"></calcite-rating>
-          <h5>Default with average and value</h5>
-          <calcite-rating class="calcite-theme-dark" average="3.65" value="2"></calcite-rating>
-          <h5>Default without average or value</h5>
-          <calcite-rating class="calcite-theme-dark"></calcite-rating>
-          <h5>Default with average, show chip</h5>
-          <calcite-rating class="calcite-theme-dark" average="3.65" show-chip></calcite-rating>
-          <h5>Default with average, value, and count; show chip</h5>
-          <calcite-rating class="calcite-theme-dark" average="3.65" value="2" count="240" show-chip></calcite-rating>
-          <h2>Wrapped in calcite-label</h2>
-          <calcite-label class="calcite-theme-dark">
-            Rate this item
-            <calcite-rating class="calcite-theme-dark" average="2.35" count="14"></calcite-rating>
-          </calcite-label>
-          <calcite-label class="calcite-theme-dark" layout="inline">
-            Rate this item
-            <calcite-rating average="2.35" count="14"></calcite-rating>
-          </calcite-label>
-          <calcite-label class="calcite-theme-dark" layout="inline-space-between">
-            Rate this item
-            <calcite-rating class="calcite-theme-dark" average="2.35" count="14"></calcite-rating>
-          </calcite-label>
 
-          <h2>Read only</h2>
-          <h5>Read only with average</h5>
-          <calcite-rating class="calcite-theme-dark" read-only average="3.65"></calcite-rating>
-          <h5>Read only with value</h5>
-          <calcite-rating class="calcite-theme-dark" read-only value="3"></calcite-rating>
-          <h5>Read only with average and value</h5>
-          <calcite-rating class="calcite-theme-dark" read-only average="3.65" value="2" count="31"></calcite-rating>
-          <h5>Read only without average or value</h5>
-          <calcite-rating class="calcite-theme-dark" read-only></calcite-rating>
-          <h2>Disabled</h2>
-          <h5>Disabled with average</h5>
-          <calcite-rating class="calcite-theme-dark" disabled average="3.65"></calcite-rating>
-          <h5>Disabled with value</h5>
-          <calcite-rating class="calcite-theme-dark" disabled value="3"></calcite-rating>
-          <h5>Disabled with average and value</h5>
-          <calcite-rating class="calcite-theme-dark" disabled average="3.65" value="2"></calcite-rating>
-          <h5>Disabled without average or value</h5>
-          <calcite-rating class="calcite-theme-dark" disabled></calcite-rating>
+      <div class="child">
+        <calcite-rating scale="m"></calcite-rating>
+      </div>
 
-          <h2>Icon Types</h2>
-          <h5>Star (Default)</h5>
-          <calcite-rating class="calcite-theme-dark"> </calcite-rating>
+      <div class="child">
+        <calcite-rating scale="l"></calcite-rating>
+      </div>
+    </div>
 
-          <h2>Scales</h2>
-          <h5>S</h5>
-          <calcite-rating class="calcite-theme-dark" scale="s"></calcite-rating>
-          <calcite-rating class="calcite-theme-dark" average="4.24" count="214" scale="s"></calcite-rating>
-          <h5>M (Default)</h5>
-          <calcite-rating></calcite-rating>
-          <h5>L</h5>
-          <calcite-rating class="calcite-theme-dark" scale="l"></calcite-rating>
-          <calcite-rating class="calcite-theme-dark" average="4.24" count="214" scale="l"></calcite-rating>
+    <!-- Default with average -->
+    <div class="parent">
+      <div class="child right-aligned-text">Default with average</div>
 
-          <h2>Chip combinations</h2>
-          <calcite-rating class="calcite-theme-dark" average="2.35" count="14"></calcite-rating><br />
-          <calcite-rating class="calcite-theme-dark" average="2.35" value="4"></calcite-rating><br />
-          <calcite-rating class="calcite-theme-dark" count="14"></calcite-rating>
-          <div dir="rtl">
-            <h2>RTL</h2>
-            <calcite-rating class="calcite-theme-dark" average="2.35" count="14"></calcite-rating><br />
-            <calcite-rating class="calcite-theme-dark" average="2.35" value="4"></calcite-rating><br />
-            <calcite-rating class="calcite-theme-dark" count="14"></calcite-rating>
-          </div>
-        </div>
+      <div class="child">
+        <calcite-rating average="3.65" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.65" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.65" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Default with value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Default with value</div>
+
+      <div class="child">
+        <calcite-rating value="2" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating value="2" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating value="2" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Default with average and value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Default with average and value</div>
+
+      <div class="child">
+        <calcite-rating average="3.65 " value="2" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.65 " value="2" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.65 " value="2" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Default with average or value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Default with average or value</div>
+
+      <div class="child">
+        <calcite-rating scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Default with average, show chip -->
+    <div class="parent">
+      <div class="child right-aligned-text">Default with average, show chip</div>
+
+      <div class="child">
+        <calcite-rating average="3.45" show-chip scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.45" show-chip scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.45" show-chip scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Default with average, value, and count; show chip -->
+    <div class="parent">
+      <div class="child right-aligned-text">Default with average, value, and count; show chip</div>
+
+      <div class="child">
+        <calcite-rating average="3.65" value="2" count="240" show-chip scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.65" value="2" count="240" show-chip scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="3.65" value="2" count="240" show-chip scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <hr />
+    <!-- A horizontal line -->
+
+    <!-- 
+      **************************************************
+      * READ ONLY
+      **************************************************
+    -->
+    <!-- Read only with average -->
+    <div class="parent">
+      <div class="child right-aligned-text">Read only with average</div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Read only with value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Read only with value</div>
+
+      <div class="child">
+        <calcite-rating read-only value="3" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only value="3" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only value="3" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Read only with average and value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Read only with average and value</div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" value="3" count="31" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" value="3" count="31" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" value="3" count="31" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Read only with average or value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Read only with average or value</div>
+
+      <div class="child">
+        <calcite-rating read-only scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Read only with average, show chip -->
+    <div class="parent">
+      <div class="child right-aligned-text">Read only with average, show chip</div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.45" show-chip scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.45" show-chip scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.45" show-chip scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Read only with average, value, and count; show chip -->
+    <div class="parent">
+      <div class="child right-aligned-text">Read only with average, value, and count; show chip</div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" value="2" count="240" show-chip scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" value="2" count="240" show-chip scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating read-only average="3.65" value="2" count="240" show-chip scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <hr />
+    <!-- A horizontal line -->
+
+    <!-- 
+      **************************************************
+      * DISABLED
+      **************************************************
+    -->
+    <!-- Disabled with average -->
+    <div class="parent">
+      <div class="child right-aligned-text">Disabled with average</div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Disabled with value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Disabled with value</div>
+
+      <div class="child">
+        <calcite-rating disabled value="3" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled value="3" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled value="3" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Disabled with average and value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Disabled with average and value</div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" value="3" scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" value="3" scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" value="3" scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Disabled with average or value -->
+    <div class="parent">
+      <div class="child right-aligned-text">Disabled with average or value</div>
+
+      <div class="child">
+        <calcite-rating disabled scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Disabled with average, show chip -->
+    <div class="parent">
+      <div class="child right-aligned-text">Disabled with average, show chip</div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.45" show-chip scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.45" show-chip scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.45" show-chip scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- Disabled with average, value, and count; show chip -->
+    <div class="parent">
+      <div class="child right-aligned-text">Disabled with average, value, and count; show chip</div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" value="2" count="240" show-chip scale="s"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" value="2" count="240" show-chip scale="m"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating disabled average="3.65" value="2" count="240" show-chip scale="l"></calcite-rating>
+      </div>
+    </div>
+
+    <hr />
+    <!-- A horizontal line -->
+
+    <!-- 
+      **************************************************
+      * CHIP COMBINATIONS
+      **************************************************
+    -->
+    <div class="parent">
+      <div class="child"></div>
+      <div class="child">Variation 1</div>
+      <div class="child">Variation 2</div>
+      <div class="child">Variation 3</div>
+    </div>
+    <!-- Chip combinations -->
+    <div class="parent">
+      <div class="child right-aligned-text">Chip combinations</div>
+
+      <div class="child">
+        <calcite-rating average="2.35" count="14"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating average="2.35" value="4"></calcite-rating>
+      </div>
+
+      <div class="child">
+        <calcite-rating count="14"></calcite-rating>
+      </div>
+    </div>
+
+    <!-- 
+      **************************************************
+      * WRAPPED IN CALCITE-LABEL
+      **************************************************
+    -->
+    <div class="parent">
+      <div class="child right-aligned-text">Wrapped in calcite-label</div>
+
+      <div class="child">
+        <calcite-label class="calcite-theme-dark">
+          Rate this item
+          <calcite-rating class="calcite-theme-dark" average="2.35" count="14"></calcite-rating>
+        </calcite-label>
+      </div>
+
+      <div class="child">
+        <calcite-label class="calcite-theme-dark" layout="inline">
+          Rate this item
+          <calcite-rating average="2.35" count="14"></calcite-rating>
+        </calcite-label>
+      </div>
+
+      <div class="child">
+        <calcite-label class="calcite-theme-dark" layout="inline-space-between">
+          Rate this item
+          <calcite-rating class="calcite-theme-dark" average="2.35" count="14"></calcite-rating>
+        </calcite-label>
       </div>
     </div>
   </body>
