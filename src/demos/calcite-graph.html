@@ -28,7 +28,17 @@
       <calcite-graph></calcite-graph>
     </p>
 
+    <h3>Highlight Range</h3>
+    <calcite-graph class="highlight-range"></calcite-graph>
+
+    <h3>Color Stops</h3>
+    <calcite-graph class="color-stops"></calcite-graph>
+
+    <h3>Highlight Range and Color Stops</h3>
+    <calcite-graph class="highlight-range color-stops"></calcite-graph>
+
     <script>
+      // Fill all graphs with the same data.
       var data = [
         [0, 0],
         [10, 80],
@@ -42,8 +52,21 @@
         [90, 10],
         [100, 0]
       ];
-      [].slice.call(document.querySelectorAll("calcite-graph")).forEach(function (graphElement) {
+      document.querySelectorAll("calcite-graph").forEach(function (graphElement) {
         graphElement.data = data;
+      });
+
+      // Add highlight ranges
+      document.querySelectorAll(".highlight-range").forEach(function (graphElement) {
+        graphElement.highlightMin = 25;
+        graphElement.highlightMax = 75;
+      });
+
+      // Add color stops
+      var rainbow = ["red", "orange", "yellow", "green", "cyan", "blue", "violet"];
+      var colorStops = rainbow.map((color, i) => [(1 / (rainbow.length - 1)) * i, color]);
+      document.querySelectorAll(".color-stops").forEach(function (graphElement) {
+        graphElement.colorStops = colorStops;
       });
     </script>
   </body>
