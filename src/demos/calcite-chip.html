@@ -6,16 +6,280 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Calcite Chip</title>
     <style>
-      .demo-background-dark {
-        background: #2b2b2b;
-        color: white;
-        padding: 1rem;
+      .parent {
+        display: flex;
+        width: 60%;
+        align-items: center;
+        padding: 25px 0;
+      }
+
+      .child {
+        flex: 0 0 15%;
+        margin: 0 25px;
+        color: var(--calcite-ui-text-3);
+        font-family: var(--calcite-sans-family);
+        font-size: var(--calcite-font-size-0);
+        font-weight: var(--calcite-font-weight-medium);
+      }
+
+      .right-aligned-text {
+        text-align: right;
+      }
+
+      hr {
+        margin: 25px 0;
+        border-top: 1px solid var(--calcite-ui-border-2);
       }
     </style>
     <script src="_assets/head.js"></script>
   </head>
 
   <body>
+    <div>
+      <calcite-button href="/" icon-start="arrow-left" color="neutral"> Home </calcite-button>
+    </div>
+
+    <h1 style="margin: 0 auto; text-align: center">Chip</h1>
+
+    <!-- Header -->
+    <div class="parent">
+      <div class="child"></div>
+      <div class="child">Small</div>
+      <div class="child">Medium</div>
+      <div class="child">Large</div>
+    </div>
+
+    <!-- Basic -->
+    <div class="parent">
+      <div class="child right-aligned-text">Basic</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" id="one" scale="s" dismissible> Apple </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="m" dismissible> Apple </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="l" dismissible> Apple </calcite-chip>
+      </div>
+    </div>
+
+    <!-- Slotted image -->
+    <div class="parent">
+      <div class="child right-aligned-text">Slotted image</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="s" active>
+          <img slot="image" src="https://placekitten.com/50/50" />
+          Siamese Cat
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="m" active>
+          <img slot="image" src="https://placekitten.com/50/50" />
+          Siamese Cat
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="l" active>
+          <img slot="image" src="https://placekitten.com/50/50" />
+          Siamese Cat
+        </calcite-chip>
+      </div>
+    </div>
+
+    <!-- Slotted avatar -->
+    <div class="parent">
+      <div class="child right-aligned-text">Slotted avatar</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="s" active>
+          <calcite-avatar
+            slot="image"
+            scale="s"
+            user-id="52e44e112b1f429182515dba79b71eb8"
+            username="au"
+          ></calcite-avatar>
+          Another User
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="m" active>
+          <calcite-avatar
+            slot="image"
+            scale="m"
+            user-id="52e44e112b1f429182515dba79b71eb8"
+            username="au"
+          ></calcite-avatar>
+          Another User
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" scale="l" active>
+          <calcite-avatar
+            slot="image"
+            scale="l"
+            user-id="52e44e112b1f429182515dba79b71eb8"
+            username="au"
+          ></calcite-avatar>
+          Another User
+        </calcite-chip>
+      </div>
+    </div>
+
+    <!-- Icon attribute -->
+    <div class="parent">
+      <div class="child right-aligned-text">Icon attribute</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="check-circle" scale="s"> Check circle </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="drone-fixed-wing" scale="m"> Drone </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="embark" scale="l"> Ship </calcite-chip>
+      </div>
+    </div>
+
+    <!-- Icon attribute dismissible -->
+    <div class="parent">
+      <div class="child right-aligned-text">Icon attribute dismissible</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="check-circle" scale="s" dismissible> Check circle </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="drone-fixed-wing" scale="m" dismissible> Drone </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="embark" scale="l" dismissible> Ship </calcite-chip>
+      </div>
+    </div>
+
+    <hr />
+    <!-- A horizontal line -->
+
+    <!-- Colors - Solid (Default) -->
+    <div class="parent">
+      <div class="child right-aligned-text">Solid color</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe"> Grey (default) </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" color="yellow"> Yellow </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" color="green"> Green </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" color="blue"> Blue </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" color="red"> Red </calcite-chip>
+      </div>
+    </div>
+
+    <!-- Colors - Solid (dismissible) -->
+    <div class="parent">
+      <div class="child right-aligned-text">Dismissible</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" dismissible> Grey (dismissible) </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" dismissible color="yellow"> Yellow </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" dismissible color="green"> Green </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" dismissible color="blue"> Blue </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" dismissible color="red"> Red </calcite-chip>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Colors - Clear (Default) -->
+    <div class="parent">
+      <div class="child right-aligned-text">Clear color</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear"> Grey (default) </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="yellow"> Yellow </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="green"> Green </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="blue"> Blue </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="red"> Red </calcite-chip>
+      </div>
+    </div>
+
+    <!-- Colors - Clear (dismissible) -->
+    <div class="parent">
+      <div class="child right-aligned-text">Clear color dismissible</div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" dismissible>
+          Grey (dismissible)
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" dismissible color="yellow">
+          Yellow
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" dismissible color="green">
+          Green
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" dismissible color="blue">
+          Blue
+        </calcite-chip>
+      </div>
+
+      <div class="child">
+        <calcite-chip value="calcite chip" icon="globe" appearance="clear" dismissible color="red"> Red </calcite-chip>
+      </div>
+    </div>
+
     <script>
       window.onload = () => {
         const one = document.querySelector("#one");
@@ -24,267 +288,5 @@
         });
       };
     </script>
-    <calcite-button href="/">Home</calcite-button>
-    <h1>Calcite Chip</h1>
-    <h2>Basic</h2>
-    <calcite-chip value="calcite chip" id="one" dismissible>Apple</calcite-chip>
-    <h2>Slotted "image"</h2>
-    <calcite-chip value="calcite chip" active>
-      <img slot="image" src="https://placekitten.com/50/50" />
-      Siamese Cat
-    </calcite-chip>
-    <calcite-chip value="calcite chip" active>
-      <img slot="image" src="https://placekitten.com/50/50" />
-      Siamese Cat
-    </calcite-chip>
-    <h2>Slotted avatar</h2>
-    <calcite-chip value="calcite chip" active scale="s">
-      <calcite-avatar slot="image" scale="s" user-id="52e44e112b1f429182515dba79b71eb8" username="au"></calcite-avatar
-      >Another User
-    </calcite-chip>
-    <calcite-chip value="calcite chip" active scale="m">
-      <calcite-avatar slot="image" scale="m" user-id="9a7c50e6b3ce4b859f7b31e302437164" username="bv"></calcite-avatar
-      >Ben Viceroy
-    </calcite-chip>
-    <calcite-chip value="calcite chip" active scale="l">
-      <calcite-avatar slot="image" scale="l" user-id="a81470986eaeee1833b74b7d8abcd5b2" username="cw"></calcite-avatar
-      >Carol Whitten
-    </calcite-chip>
-    <h2>With icon attribute</h2>
-    <calcite-chip value="calcite chip" icon="check-circle"> Siamese Cat </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe"> Camera Flash On </calcite-chip>
-    <h2>With icon attribute dismissible</h2>
-    <calcite-chip value="calcite chip" dismissible icon="check-circle"> Siamese Cat </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe"> Camera Flash On </calcite-chip>
-    <h2>Scales</h2>
-    <calcite-chip value="calcite chip" scale="s"> Scale S </calcite-chip>
-    <calcite-chip value="calcite chip" scale="m"> Scale M </calcite-chip>
-    <calcite-chip value="calcite chip" scale="l"> Scale L </calcite-chip>
-    <br />
-    <br />
-    <calcite-chip value="calcite chip" dismissible scale="s"> Scale S </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible scale="m"> Scale M </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible scale="l"> Scale L </calcite-chip>
-
-    <br />
-    <br />
-
-    <calcite-chip value="calcite chip" icon="globe" scale="s"> Scale S </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" scale="m"> Scale M </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" scale="l"> Scale L </calcite-chip>
-    <br />
-    <br />
-
-    <h3>Colors - Solid (Default)</h3>
-    <calcite-chip value="calcite chip" icon="globe"> Grey (default) </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" color="red"> Red </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" color="yellow"> Yellow </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" color="green"> Green </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" color="blue"> Blue </calcite-chip>
-    <br />
-    <br />
-    <calcite-chip value="calcite chip" dismissible icon="globe"> Grey (default) </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" color="red"> Red </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" color="yellow"> Yellow </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" color="green"> Green </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" color="blue"> Blue </calcite-chip>
-    <h3>Colors - clear</h3>
-    <calcite-chip value="calcite chip" icon="globe" appearance="clear"> Grey (default) </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="red"> Red </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="yellow"> Yellow </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="green"> Green </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" appearance="clear" color="blue"> Blue </calcite-chip>
-    <br />
-    <br />
-    <calcite-chip value="calcite chip" dismissible icon="globe" appearance="clear"> Grey (default) </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" appearance="clear" color="red"> Red </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" appearance="clear" color="yellow">
-      Yellow
-    </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" appearance="clear" color="green"> Green </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" appearance="clear" color="blue"> Blue </calcite-chip>
-
-    <h2>RTL</h2>
-    <calcite-chip value="calcite chip" dir="rtl">Apple</calcite-chip>
-    <calcite-chip value="calcite chip" dir="rtl">
-      <img slot="image" src="https://placekitten.com/50/50" />
-      Siamese Cat
-    </calcite-chip>
-    <calcite-chip value="calcite chip" icon="globe" dir="rtl"> Camera Flash On </calcite-chip>
-    <calcite-chip value="calcite chip" dismissible icon="globe" appearance="clear" color="blue" dir="rtl">
-      Blue
-    </calcite-chip>
-    <br />
-    <br />
-    <div class="demo-background-dark calcite-theme-dark">
-      <h2>Basic</h2>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" id="one">Apple</calcite-chip>
-      <h2>Slotted "image"</h2>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" active>
-        <img slot="image" src="https://placekitten.com/50/50" />
-        Siamese Cat
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" active>
-        <img slot="image" src="https://placekitten.com/50/50" />
-        Siamese Cat
-      </calcite-chip>
-      <h2>With icon attribute</h2>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="check-circle"> Siamese Cat </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe"> Camera Flash On </calcite-chip>
-      <h2>With icon attribute dismissible</h2>
-      <calcite-chip value="calcite chip" dismissible class="calcite-theme-dark" icon="check-circle">
-        Siamese Cat
-      </calcite-chip>
-      <calcite-chip value="calcite chip" dismissible class="calcite-theme-dark" icon="globe">
-        Camera Flash On
-      </calcite-chip>
-      <h2>Scales</h2>
-
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" scale="s"> Scale S </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" scale="m"> Scale M </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" scale="l"> Scale L </calcite-chip>
-
-      <br />
-      <br />
-      <calcite-chip value="calcite chip" dismissible class="calcite-theme-dark" scale="s"> Scale S </calcite-chip>
-      <calcite-chip value="calcite chip" dismissible class="calcite-theme-dark" scale="m"> Scale M </calcite-chip>
-      <calcite-chip value="calcite chip" dismissible class="calcite-theme-dark" scale="l"> Scale L </calcite-chip>
-
-      <br />
-      <br />
-
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" scale="s"> Scale S </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" scale="m"> Scale M </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" scale="l"> Scale L </calcite-chip>
-      <h3>Colors - Solid (Default)</h3>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe"> Grey (default) </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" color="red"> Red </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" color="yellow"> Yellow </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" color="green"> Green </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" color="blue"> Blue </calcite-chip>
-      <br />
-      <br />
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dismissible icon="globe">
-        Grey (default)
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dismissible icon="globe" color="red">
-        Red
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dismissible icon="globe" color="yellow">
-        Yellow
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dismissible icon="globe" color="green">
-        Green
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dismissible icon="globe" color="blue">
-        Blue
-      </calcite-chip>
-      <h3>Colors - clear</h3>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" appearance="clear">
-        Grey (default)
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" appearance="clear" color="red">
-        Red
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" appearance="clear" color="yellow">
-        Yellow
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" appearance="clear" color="green">
-        Green
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" appearance="clear" color="blue">
-        Blue
-      </calcite-chip>
-      <br />
-      <br />
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dismissible icon="globe" appearance="clear">
-        Grey (default)
-      </calcite-chip>
-      <calcite-chip
-        value="calcite chip"
-        class="calcite-theme-dark"
-        dismissible
-        icon="globe"
-        appearance="clear"
-        color="red"
-      >
-        Red
-      </calcite-chip>
-      <calcite-chip
-        value="calcite chip"
-        class="calcite-theme-dark"
-        dismissible
-        icon="globe"
-        appearance="clear"
-        color="yellow"
-      >
-        Yellow
-      </calcite-chip>
-      <calcite-chip
-        value="calcite chip"
-        class="calcite-theme-dark"
-        dismissible
-        icon="globe"
-        appearance="clear"
-        color="green"
-      >
-        Green
-      </calcite-chip>
-      <calcite-chip
-        value="calcite chip"
-        class="calcite-theme-dark"
-        dismissible
-        icon="globe"
-        appearance="clear"
-        color="blue"
-      >
-        Blue
-      </calcite-chip>
-      <h2>Slotted avatar</h2>
-      <calcite-chip value="calcite chip" active scale="s">
-        <calcite-avatar slot="image" scale="s" user-id="52e44e112b1f429182515dba79b71eb8" username="au"></calcite-avatar
-        >Another User
-      </calcite-chip>
-      <calcite-chip value="calcite chip" active scale="m">
-        <calcite-avatar slot="image" scale="m" user-id="9a7c50e6b3ce4b859f7b31e302437164" username="bv"></calcite-avatar
-        >Ben Viceroy
-      </calcite-chip>
-      <calcite-chip value="calcite chip" active scale="l">
-        <calcite-avatar slot="image" scale="l" user-id="a81470986eaeee1833b74b7d8abcd5b2" username="cw"></calcite-avatar
-        >Carol Whitten
-      </calcite-chip>
-      <h2>RTL</h2>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dir="rtl">Apple</calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" dir="rtl">
-        <img slot="image" src="https://placekitten.com/50/50" />
-        Siamese Cat
-      </calcite-chip>
-      <calcite-chip value="calcite chip" active scale="s" dir="rtl">
-        <calcite-avatar slot="image" scale="s" user-id="52e44e112b1f429182515dba79b71eb8" username="au"></calcite-avatar
-        >Another User
-      </calcite-chip>
-      <calcite-chip value="calcite chip" active scale="m" dir="rtl">
-        <calcite-avatar slot="image" scale="m" user-id="9a7c50e6b3ce4b859f7b31e302437164" username="bv"></calcite-avatar
-        >Ben Viceroy
-      </calcite-chip>
-      <calcite-chip value="calcite chip" active scale="l" dir="rtl">
-        <calcite-avatar slot="image" scale="l" user-id="a81470986eaeee1833b74b7d8abcd5b2" username="cw"></calcite-avatar
-        >Carol Whitten
-      </calcite-chip>
-      <calcite-chip value="calcite chip" class="calcite-theme-dark" icon="globe" dir="rtl">
-        Camera Flash On
-      </calcite-chip>
-      <calcite-chip
-        value="calcite chip"
-        class="calcite-theme-dark"
-        dismissible
-        icon="globe"
-        appearance="clear"
-        color="blue"
-        dir="rtl"
-      >
-        Blue
-      </calcite-chip>
-    </div>
   </body>
 </html>
