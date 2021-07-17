@@ -36,13 +36,12 @@
             <calcite-action slot="actions-end" text="click-me" onClick="console.log('clicked');" icon="sliders">
             </calcite-action>
           </calcite-value-list-item>
-          <calcite-value-list-item disable-select label="Cats" description="Independent and fluffy" value="cats">
+          <calcite-value-list-item label="Cats" description="Independent and fluffy" value="cats">
             <calcite-action label="action start" slot="actions-start" scale="m">
               <div style="align-self: center; width: 16px; height: 16px; background-color: #56ccf2"></div>
             </calcite-action>
           </calcite-value-list-item>
           <calcite-value-list-item
-            disable-select
             label="Fish. But not just any fish, a tiger fish caught live in the Atlantic Ocean while on vacation."
             description="Easy to care for."
             value="fish"
@@ -51,6 +50,13 @@
               <div style="align-self: center; width: 16px; height: 16px; background-color: #990000"></div>
             </calcite-action>
           </calcite-value-list-item>
+        </calcite-value-list>
+
+        <h2>disable select</h2>
+        <calcite-value-list>
+          <calcite-value-list-item disable-select label="Uno" value="1" removable></calcite-value-list-item>
+          <calcite-value-list-item disable-select label="Dos" value="2" removable></calcite-value-list-item>
+          <calcite-value-list-item disable-select label="Tres" value="3" removable></calcite-value-list-item>
         </calcite-value-list>
 
         <h2>ValueList - Multi-select w/ Filter</h2>

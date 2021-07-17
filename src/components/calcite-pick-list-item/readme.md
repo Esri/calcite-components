@@ -10,6 +10,7 @@
 | -------------------- | ------------------ | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------- |
 | `description`        | `description`      | An optional description for this item. This will appear below the label text.                     | `string`                                                    | `undefined`   |
 | `disableDeselect`    | `disable-deselect` | When false, the item cannot be deselected by user interaction.                                    | `boolean`                                                   | `false`       |
+| `disableSelect`      | `disable-select`   | When true, the item cannot be selectd.                                                            | `boolean`                                                   | `false`     |
 | `disabled`           | `disabled`         | When true, the item cannot be clicked and is visually muted.                                      | `boolean`                                                   | `false`       |
 | `icon`               | `icon`             | Determines the icon SVG symbol that will be shown. Options are circle, square, grid or null.      | `ICON_TYPES.circle \| ICON_TYPES.grip \| ICON_TYPES.square` | `null`        |
 | `intlRemove`         | `intl-remove`      | The text for the remove item buttons. Only applicable if removable is true.                       | `string`                                                    | `TEXT.remove` |

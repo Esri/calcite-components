@@ -74,6 +74,17 @@ describe("calcite-value-list-item", () => {
     expect(await item.getProperty("selected")).toBe(true);
   });
 
+  it("prevents selection when disableSelect is true", async () => {
+    const page = await newE2EPage({
+      html: `<calcite-value-list-item label="test" value="example" disable-select></calcite-value-list-item>`
+    });
+    const item = await page.find("calcite-value-list-item");
+
+    await item.click();
+
+    expect(await item.getProperty("selected")).toBe(false);
+  });
+
   function queryWrappedPickListPart(page: E2EPage, partSelector: string, partMethodToInvoke?: string): Promise<void> {
     return page.$eval(
       "calcite-value-list-item",

@@ -10,6 +10,7 @@
 | -------------------- | ------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ----------- |
 | `description`        | `description` | An optional description for this item. Will appear below the label text.                          | `string`                                                    | `undefined` |
 | `disabled`           | `disabled`    | When true, the item cannot be clicked and is visually muted                                       | `boolean`                                                   | `false`     |
+| `disableSelect`      | `disable-select` | When true, the item cannot be selectd.                                                          | `boolean`                                                   | `false`     |
 | `icon`               | `icon`        | Determines the icon SVG symbol that will be shown. Options are circle, square, grid or null.      | `ICON_TYPES.circle \| ICON_TYPES.grip \| ICON_TYPES.square` | `null`      |
 | `label` _(required)_ | `label`       | The main label for this item. Appears next to the icon.                                           | `string`                                                    | `undefined` |
 | `metadata`           | --            | Used to provide additional metadata to an item, primarily used when the parent list has a filter. | `{ [x: string]: unknown; }`                                 | `undefined` |
